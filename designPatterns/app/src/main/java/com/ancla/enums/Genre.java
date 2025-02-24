@@ -1,0 +1,13 @@
+package com.ancla.enums;
+
+public enum Genre {
+  CLASSIC,
+  MYSTERY,
+  FANTASY,
+  HISTORICAL_FICTION,
+  HORROR,
+  LITERARY_FICTION,
+  ROMANCE,
+  SCIENCE_FICTION,
+  HISTORY,
+}
