@@ -24,4 +24,6 @@ gradle-app.setting
 # JDT-specific (Eclipse Java Development Tools)
 .classpath
  .settings/
- app/bin/
+ app/.classpath
+ app/.project
+ **/bin/

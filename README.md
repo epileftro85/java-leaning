@@ -7,5 +7,6 @@ This repo is intended to be an easy way to learn languages from examples, the ru
 5. Use any language you want, this repo will support Java, C++ for now.
 
 ### Java
-- [Tick Tack Toe](tickTackToe)
 - [Design Patterns](designPatterns)
+- [Solid](solid)
+- [Tick Tack Toe](tickTackToe)

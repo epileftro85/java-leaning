@@ -5,7 +5,7 @@ import com.ancla.services.RegularPersonBuilder;
 import com.ancla.services.WorkerPersonBuilder;
 
 /*
- * This is another way to create a builder, we create a single or main entity, now with public accesors.
+ * This is another way to create a builder, we create a single or main entity with public accesors.
  * Now we have access to the implementations under each aspect of the object, in this case, we can create
  * just a regular person (unemployed) and another which works too. The implementations are encapsulated,
  * each behave belongs to its class.
