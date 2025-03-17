@@ -1,0 +1,109 @@
+@startuml
+package "Main Package" {
+    class Main {
+        + main(String[] args) : void
+    }
+
+    class CoffeeMachine {
+        + clientOption() : ClientOptions
+        + adminOption() : AdminOptionsFactory
+    }
+}
+
+package "Client" {
+    enum IngredientType {
+        MILK,
+        COFFEE,
+        SUGAR,
+        WATER
+    }
+
+    enum Coffees {
+        ESPRESSO,
+        AMERICANO,
+        LATTE,
+        CAPPUCCINO
+    }
+
+    class ClientOptions {
+        - mapOfTypes: Map<Coffees, CoffeType>
+        + execute() : void
+    }
+
+    interface CoffeeStrategy {
+        + createCoffee() : void
+        + getName() : String
+        + getIngredients() : Map<IngredientType, Float>
+    }
+
+    class Espresso implements CoffeeStrategy
+    class Americano implements CoffeeStrategy
+    class Latte implements CoffeeStrategy
+    class Cappuccino implements CoffeeStrategy
+}
+
+package "Utils" {
+    class CoffeeException {
+        - message: String
+        + CoffeeException(msg: String)
+    }
+
+    class Inventory {
+        - water : float
+        - sugar : float
+        - coffee : float
+        - milk : float
+        - money: float
+        + getWater() : float
+        + getSugar() : float
+        + getCoffee() : float
+        + getMilk() : float
+        + getMoney() : float
+    }
+
+    class InventoryManager {
+        + getInstance() : InventoryManager
+        + decreaseInventory(...) : void
+        + increaseIngredients(...): void
+        + updateMoney(): void
+    }
+
+    class TextUtils {
+        + showWellcome(): void
+        + printUserOptions(): void
+        + printAdminOptions(): void
+        + printEndFlow(): void
+    }
+}
+
+package "Admin" {
+    enum AdminOptionEnum {
+        CHECK_INGREDIENTS
+        REFILL_INGREDIENTS
+        DISPLAY_INGREDIENTS_LEVELS
+    }
+
+    class AdminOptionsFactory {
+        + execute(option: AdminOptionEnum) : void
+    }
+
+    interface AdminStrategy {
+        + execute(AdminOptionEnum) : void
+    }
+
+    class CheckIngredients implements AdminStrategy
+    class RefillIngredients implements AdminStrategy
+    class DisplayIngredientsLevels implements AdminStrategy
+}
+
+' Relationships
+Main --> CoffeeMachine
+CoffeeMachine::clientOption --> ClientOptions
+CoffeeMachine::adminOption --> AdminOptionsFactory
+InventoryManager --> CoffeeException
+CoffeeMachine --> InventoryManager
+InventoryManager --> Inventory
+CoffeeStrategy --> IngredientType
+ClientOptions --> CoffeeStrategy
+ClientOptions::mapOfTypes --> Coffees
+@enduml
