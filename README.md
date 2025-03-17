@@ -10,3 +10,4 @@ This repo is intended to be an easy way to learn languages from examples, the ru
 - [Design Patterns](designPatterns)
 - [Solid](solid)
 - [Tick Tack Toe](tickTackToe)
+- [Coffee Machine](CoffeeMachine)
